@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
 
-class AnswerButton extends StatelessWidget{
-  const AnswerButton(this.answerText, this.onPressed, {Key? key}) : super(key: key);
+class AnswerButton extends StatelessWidget {
+  const AnswerButton({
+    super.key,
+    required this.answerText,
+    required this.onTap,
+  });
 
   final String answerText;
-  final void Function() onPressed;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(
-          horizontal: 20,
           vertical: 10,
+          horizontal: 40,
         ),
+        backgroundColor: const Color.fromARGB(255, 33, 1, 95),
         foregroundColor: Colors.white,
-        backgroundColor: Colors.purple,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        textStyle: const TextStyle(
-          fontSize: 20,
+          borderRadius: BorderRadius.circular(40),
         ),
       ),
-      child: Text(answerText, textAlign: TextAlign.center, style: const TextStyle(fontSize: 20)),
+      child: Text(
+        answerText,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
